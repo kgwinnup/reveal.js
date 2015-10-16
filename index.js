@@ -1,4 +1,5 @@
 'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const child_process = require('child_process');
@@ -37,6 +38,7 @@ function compileSlide(file, theme) {
     child.on('close', (code) => {
         if (code === 0) {
             success(name + '.md" slides compiled successfully');
+            PubSub.publish('delta', file);
         } else {
             error(name + '.md" slides failed to compile');
         }
@@ -55,6 +57,7 @@ function copyFile(filePath) {
         } else {
             fs.createReadStream(filePath).pipe(fs.createWriteStream(newPath));
             success(path.basename(filePath) + ' copied successfully');
+            PubSub.publish('delta', filePath);
         }
     });
 }
@@ -65,8 +68,6 @@ watch('./markdown/', function(filename) {
     } else {
         copyFile(path.normalize(filename));
     }
-
-    PubSub.publish('delta', filename);
 });
 
 app.set('views', './views');
