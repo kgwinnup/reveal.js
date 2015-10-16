@@ -81,7 +81,7 @@ app.get('/', (req, res) => {
         let ret = [];
         files.map( (name) => {
             if (path.extname(name) === '.html') {
-                ret.push('#' + name);
+                ret.push('./slides/' + name);
             }
         });
         res.render('index', { title: 'Hey', files: ret});
