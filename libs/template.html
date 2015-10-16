@@ -26,6 +26,17 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? '../libs/css/print/pdf.css' : '../libs/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+			function doHotReload() {
+			    console.log('socket');
+			    var sock = new WebSocket('ws://' + window.location.hostname + ':' + window.location.port + '/slide');
+			    sock.onopen = function(event) {
+			        sock.send(window.location.pathname);
+			    }
+			    sock.onmessage = function(event) {
+					window.location.reload();
+			    }
+			}
 		</script>
 
 		<!--[if lt IE 9]>
@@ -33,7 +44,7 @@
 		<![endif]-->
 	</head>
 
-	<body>
+	<body onload="doHotReload()">
 
 		<div class="reveal">
 

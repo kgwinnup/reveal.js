@@ -1,0 +1,10 @@
+html(lang=en)
+    head
+        script(src='js/hot.js')
+        title!= title
+    body(onload='doSocket()')
+        div(id='app')
+        each str in files
+            ul
+                li
+                    a(href=str)!= str

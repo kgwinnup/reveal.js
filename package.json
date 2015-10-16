@@ -1,0 +1,30 @@
+{
+  "name": "reveal.js.server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgwinnup/reveal.js.git"
+  },
+  "author": "Kyle Gwinnup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kgwinnup/reveal.js/issues"
+  },
+  "homepage": "https://github.com/kgwinnup/reveal.js#readme",
+  "devDependencies": {
+    "eslint": "^1.6.0"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-ws": "^0.2.6",
+    "jade": "^1.11.0",
+    "mkdirp": "^0.5.1",
+    "node-watch": "^0.3.4",
+    "pubsub-js": "^1.5.3"
+  }
+}
