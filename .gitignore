@@ -12,3 +12,5 @@ slides/
 libs/css/theme/simspace.css
 
 libs/css/theme/simspace.png
+
+*.log
